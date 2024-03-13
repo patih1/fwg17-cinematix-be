@@ -15,11 +15,9 @@ type AiringTimeDate struct {
 	AiringTime       string `db:"time" json:"airingTime"`
 }
 
-
 type GetId struct {
 	Id int `db:"id" json:"id"`
 }
-
 
 // mengambil date berdasarkan movieCinemaId melalui table moviesTime
 func GetMovieTime(movieCinemaId int) ([]MovieTime, error) {
@@ -48,7 +46,6 @@ func GetMovieTime(movieCinemaId int) ([]MovieTime, error) {
 	return data, err
 }
 
-
 // mengambil airing time berdasarkan dateId dari table melalui table airingTimeDateId
 func GetAiringTimeDate(c *gin.Context, dateId int) ([]AiringTimeDate, error) {
 	sql := `
@@ -70,8 +67,6 @@ func GetAiringTimeDate(c *gin.Context, dateId int) ([]AiringTimeDate, error) {
 	return data, err
 }
 
-
-
 // mengambil id movieTime berdasarkan airingTimeDateId dan movieCinemaId
 func GetMovieTimeId(c *gin.Context, airingTimeDateId int, movieCinemaId int) (GetId, error) {
 	sql := `
@@ -87,8 +82,6 @@ func GetMovieTimeId(c *gin.Context, airingTimeDateId int, movieCinemaId int) (Ge
 
 	return data, err
 }
-
-
 
 // mengambil id airingTimeDate berdasarkan airingTimeId dan dateId
 func GetAiringTimeDateId(c *gin.Context, airingTimeId int, dateId int) (GetId, error) {
